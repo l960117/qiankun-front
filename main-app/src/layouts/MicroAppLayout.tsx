@@ -9,13 +9,14 @@ class MicroAppLayout extends React.Component {
   };
 
   componentWillMount() {
-    const name = location.pathname.slice(1);
+    const name = location.pathname.split('/')[1]
     this.setState({
       name,
     });
   }
 
   render() {
+    console.log(this.state.name)
     return <MicroApp name={this.state.name} />;
   }
 }

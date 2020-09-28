@@ -11,5 +11,5 @@ export default defineConfig({
   ],
   qiankun: {
     slave: {}
-  }
+  },
 });
