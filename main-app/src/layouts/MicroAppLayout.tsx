@@ -16,7 +16,6 @@ class MicroAppLayout extends React.Component {
   }
 
   render() {
-    console.log(this.state.name)
     return <MicroApp name={this.state.name} />;
   }
 }

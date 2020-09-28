@@ -1,6 +1,15 @@
 import { dynamic } from 'umi';
 import LoadingComponent from '@/components/PageLoading';
 
+interface IElementItem {
+  name?: string;
+  path?: string;
+}
+
+interface IRouteObj {
+  routes: IElementItem     
+}
+
 let extraRoutes: object[] = [];
 
 export const qiankun = fetch('/api/config')
@@ -13,7 +22,7 @@ export const qiankun = fetch('/api/config')
       apps,
       // 完整生命周期钩子请看 https://qiankun.umijs.org/zh/api/#registermicroapps-apps-lifecycles
       lifeCycles: {
-        afterMount: (props) => {
+        afterMount: (props: any) => {
           console.log(props);
         },
       },
@@ -21,8 +30,8 @@ export const qiankun = fetch('/api/config')
     });
   });
 
-export function patchRoutes({ routes }) {
-  extraRoutes.forEach((element) => {
+export function patchRoutes({ routes }: IRouteObj) {
+  extraRoutes.forEach((element: IElementItem) => {
     routes[1].routes[0].routes.unshift({
       name: element.name,
       icon: 'smile',
@@ -36,7 +45,7 @@ export function patchRoutes({ routes }) {
   });
 }
 
-export async function render(oldRender) {
+export async function render(oldRender: Function) {
   fetch('/api/config')
     .then((res) => {
       return res.json();
