@@ -4,6 +4,7 @@ import LoadingComponent from '@/components/PageLoading';
 interface IElementItem {
   name?: string;
   path?: string;
+  routes?: Array<IElementItem>
 }
 
 interface IRouteObj {
@@ -41,6 +42,7 @@ export function patchRoutes({ routes }: IRouteObj) {
           import(/* webpackChunkName: 'layouts__MicroAppLayout' */ '@/layouts/MicroAppLayout'),
         loading: LoadingComponent,
       }),
+      routes: element.routes
     });
   });
 }

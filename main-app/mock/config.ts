@@ -14,14 +14,16 @@ export default {
       {
         name: 'sub-app-1',
         path: '/sub-app-1',
-      },
-      {
-        name: 'sub-app-1-first',
-        path: '/sub-app-1/first',
-      },
-      {
-        name: 'sub-app-1-second',
-        path: '/sub-app-1/second',
+        routes: [
+          {
+            name: 'sub-app-1-first',
+            path: '/sub-app-1/first',
+          },
+          {
+            name: 'sub-app-1-second',
+            path: '/sub-app-1/second',
+          }
+        ]
       },
       {
         name: 'sub-app-2',
